@@ -1,10 +1,9 @@
 import pygame, os, sys
-from pygame.locals import SCORE_FONT, LARGE_FONT, TURQUOISE, BLACK, BLUE
 from walls import Walls
 from snake import Snake
 from apple import Apple
 from tkinter import Tk, Button
-from constants import H, W, CELL_SIZE
+from constants import H, W, CELL_SIZE, SCORE_FONT, LARGE_FONT, TURQUOISE, BLACK, BLUE
 
 os.environ['SDL_VIDEO_CENTERED'] = '1'  # center the window
 
