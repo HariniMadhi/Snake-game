@@ -140,36 +140,5 @@ def main():
             elif event.type == KEYUP:
                 hero.speed = 10
 
-        screen.fill(BLACK)  # fill the screen black
-        draw_walls()  # drawing walls
-        draw_text()  # drawing text
-        hero.draw(screen)  # drawing snake
-        apple.draw(screen)  # drawing apple
-
-        if not game_over:
-            hero.move()  # snake's moving
-
-            if ate_apple():  # check if the apple was eaten
-                hero.points += apple.size  # add points to snake
-                apple.set_random_xy()  # change apple position
-                Apple.count += 1  # count apples
-            else:
-                hero.body.pop()  # delete the ending tile of the snake
-
-        if hero.hit_walls(walls_list):  # check if snake hits the walls or itself
-            apple.set_random_xy()
-            if hero.lives <= 0:
-                game_over = True
-                print_text(LARGE_FONT, "GAME OVER", RED)
-
-        clock.tick(hero.speed)  # FPS
-        #clock.tick(5)  # FPS
-
-        pygame.display.flip()  # update the screen
-        if game_over:
-            write_file()  # write result (name, apples, points) to the file
-            pygame.time.wait(2000)
-            break
-
 if __name__ == "__main__":
     main()
