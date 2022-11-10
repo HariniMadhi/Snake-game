@@ -1,5 +1,5 @@
 import pygame
-from constants import *
+from constants import CELL_SIZE, ROW_COUNT, COL_COUNT
 
 
 class Snake(pygame.sprite.Sprite):
