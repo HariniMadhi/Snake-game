@@ -30,17 +30,17 @@ def draw_text():
         
 def write_file():
     
-    file = "results.txt"
+    file_name = "results.txt"
     try:
-        f = open(file, "r")
+        f = open(file_name, "r")
         n = f.read().count(player_name) + 1  # how many the same names are already in file
         f.close()
     except FileNotFoundError:
-        f = open(file, "w")
+        f = open(file_name, "w")
         f.close()
         n = 0
 
-    f = open(file, "a")
+    f = open(file_name, "a")
     f.write("{} {} {} \n".format(player_name + str(n), apple.count, hero.points))
     f.close()
 
