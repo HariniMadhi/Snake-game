@@ -1,5 +1,5 @@
 import pygame
-from constants import *
+from constants import H, W
 
 
 class Walls(object):
