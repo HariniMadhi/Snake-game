@@ -1,4 +1,4 @@
-from constants import *
+from constants import COL_COUNT, ROW_COUNT, CELL_SIZE
 from random import randrange
 import pygame
 
