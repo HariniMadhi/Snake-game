@@ -1,10 +1,10 @@
 import pygame, os, sys
-from pygame.locals import *
+from pygame.locals import SCORE_FONT, LARGE_FONT, TURQUOISE, BLACK, BLUE
 from walls import Walls
 from snake import Snake
-from apple import *
-from tkinter import *
-from constants import *
+from apple import Apple
+from tkinter import Tk, Button
+from constants import H, W, CELL_SIZE
 
 os.environ['SDL_VIDEO_CENTERED'] = '1'  # center the window
 
@@ -13,7 +13,7 @@ pygame.init()
 screen = pygame.display.set_mode((W, H))
 pygame.display.set_caption('Snake')
 
-walls_list = Walls.createList(Walls(), CELL_SIZE)
+walls_list = Walls.create_list(Walls(), CELL_SIZE)
 
 
 def print_text(font, text, color, textpos=None):
@@ -30,16 +30,18 @@ def draw_text():
 
         
 def write_file():
+    
+    file = "results.txt"
     try:
-        f = open("results.txt", "r")
+        f = open(file, "r")
         n = f.read().count(player_name) + 1  # how many the same names are already in file
         f.close()
     except FileNotFoundError:
-        f = open("results.txt", "w")
+        f = open(file, "w")
         f.close()
         n = 0
 
-    f = open("results.txt", "a")
+    f = open(file, "a")
     f.write("{} {} {} \n".format(player_name + str(n), apple.count, hero.points))
     f.close()
 
